@@ -1,6 +1,6 @@
 {
   "name": "nodebb-theme-tic-community",
-  "version": "1.4.6",
+  "version": "1.0.3",
   "nbbpm": {
     "compatibility": "^1.17.0"
   },

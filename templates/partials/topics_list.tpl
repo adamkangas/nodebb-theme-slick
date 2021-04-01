@@ -44,9 +44,28 @@
 				<span>{topics.title}</span>
 				<!-- ENDIF !topics.noAnchor -->
 
-				<small>
-					<a href="<!-- IF topics.user.userslug -->{config.relative_path}/user/{topics.user.userslug}<!-- ELSE -->#<!-- ENDIF topics.user.userslug -->">{topics.user.displayname}</a> &bull; <span class="timeago" title="{topics.timestampISO}"></span>
-				</small>
+        <div class="post-data">
+					<!-- IF !template.category -->
+					<small>
+						<a href="{config.relative_path}/category/{topics.category.slug}">
+							<i class="topic-category fa fa-fw {topics.category.icon}"></i>
+							{topics.category.name}</a> &bull;&nbsp;
+					</small>
+					<!-- ENDIF !template.category -->
+
+					<!-- IF topics.tags.length -->
+					<span class="tag-list hidden-xs">
+						{{{each topics.tags}}}
+						<a class="tag-link" href="{config.relative_path}/tags/{topics.tags.valueEscaped}"><span class="tag">{topics.tags.valueEscaped}</span></a>
+						{{{end}}}
+						<small>&bull;</small>
+					</span>
+					<!-- ENDIF topics.tags.length -->		
+
+					<small>		
+						<a href="<!-- IF topics.user.userslug -->{config.relative_path}/user/{topics.user.userslug}<!-- ELSE -->#<!-- ENDIF topics.user.userslug -->">{topics.user.displayname}</a> &bull; <span class="timeago" title="{topics.timestampISO}"></span>
+					</small>				
+				</div>
 			</div>
 		</div>
 		<div class="col-md-1 hidden-xs hidden-sm">
